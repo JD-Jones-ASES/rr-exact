@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .lake/
 build/
+*.olean
+*.ilean
+*.trace
+.DS_Store

@@ -1,0 +1,65 @@
+version: v0.4
+project:
+  name: Exact norm 19/16 for a PSD Recht–Ré counterexample
+  description: >-
+    De Sa's five rational positive-semidefinite 5×5 matrices sum to 5I, and the
+    average of their 120 ordered products is exactly (29/64)I − (21/64)J. The
+    operator norm of that average is 19/16, attained on the all-ones vector.
+    The same all-ones factor is the fifth term of the rational recurrence
+    a_0 = a_1 = 1, a_{t+2} = 2 a_{t+1} − (n/(n−1)) a_t, which stays at most 1
+    in absolute value for n = 2, 3, 4. This is not a minimal-dimension theorem,
+    not the symmetric-product form, and not a claim that |a_n| > 1 for every
+    n ≥ 5.
+  authors: [JD Jones]
+  responsible_maintainers: [JD Jones]
+  license: MIT
+classification:
+  arxiv: [math.FA, math.OC]
+  msc2020: ["15A45", "15A60", "47A30"]
+sources:
+  - title: Exact norm of a PSD counterexample to the Recht–Ré inequality
+    type: other
+    authors: [JD Jones]
+    relationship: formalizes
+    notes: >-
+      The argument, the age recurrence, and the exact identification of the
+      operator norm are written in PROOF.md. The matrices are De Sa's.
+  - title: Random Reshuffling is Not Always Better
+    type: paper
+    authors: [Christopher De Sa]
+    year: 2020
+    relationship: adapts
+    notes: >-
+      NeurIPS 2020. Source of the family and of the fact that the operator
+      inequality fails at n = 5. The paper checks the average numerically;
+      this formalization replaces that check.
+  - title: Toward a Noncommutative Arithmetic-Geometric Mean Inequality
+    type: paper
+    authors: [Benjamin Recht, Christopher Ré]
+    year: 2012
+    relationship: cites
+    notes: COLT 2012, Conjecture 1, the inequality refuted here.
+automation:
+  methods:
+    - method: agent
+      tool_setup: Grok (xAI) with the Lean 4.35 kernel and an independent Python rational checker
+      notes: >-
+        An agent wrote the elementary argument, the exact rational certificate,
+        and the Lean proof. Finite matrix steps are simp and norm_num proof
+        terms checked by the kernel. No sorry remains outside the challenge,
+        and native_decide is not used.
+review:
+  status: agent-reviewed
+  notes: >-
+    The Python checker and the Lean development were produced in the same
+    effort and compared against PROOF.md. This is internal agent review, not
+    external human peer review. No endorsement by the authors of the source
+    papers is claimed.
+fidelity:
+  notes: >-
+    The compared theorems are symmetry, positive-semidefiniteness, the sum 5I,
+    the kernel line, the identification of the S_5 average with (29/64)I − (21/64)J,
+    the operator-norm bound 19/16 with equality on the all-ones vector, and the
+    rational recurrence through a_5 = −19/16 together with a_10. Dimension below
+    5, the symmetric-product inequality, and a closed description of
+    {n : |a_n| > 1} are outside the claim.

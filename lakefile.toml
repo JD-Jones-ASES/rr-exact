@@ -1,0 +1,18 @@
+name = "rrExact"
+version = "0.1.0"
+keywords = ["mathematics", "palomar"]
+defaultTargets = ["RRExact", "RRExactChallenge", "RRExactSolution"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "a98628e16c11f5167f16124105ddce53efa9bfe5"
+
+[[lean_lib]]
+name = "RRExact"
+
+[[lean_lib]]
+name = "RRExactChallenge"
+
+[[lean_lib]]
+name = "RRExactSolution"
