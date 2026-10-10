@@ -1,56 +1,67 @@
 module
 
-public import RRExact.Defs
-public import RRExact.Perms
+public import Mathlib.Analysis.CStarAlgebra.Matrix
+public import Mathlib.Analysis.Complex.Order
+public import Mathlib.LinearAlgebra.Matrix.PosDef
+public import Mathlib.LinearAlgebra.Matrix.Notation
+public import Mathlib.Data.Fintype.Perm
 
 /-!
-Compared statements for the exact norm of De Sa's `n = 5` counterexample.
-Definitions are shared with the development. These declarations are the contract;
-the proofs are in `RRExact`, not here.
+Two exact low-dimensional counterexamples to the norm-of-averaged-product
+Recht–Ré inequality. The means and permutation averages below have their
+standard meanings; the only dependencies of this contract are Mathlib and its
+pinned dependencies. Positive semidefiniteness and the Euclidean operator norm
+are Mathlib's analytic definitions over the displayed scalar fields.
 -/
 
 @[expose] public section
 
+open scoped Matrix.Norms.L2Operator ComplexOrder
+open Matrix
+
 namespace RRExact
 
-/-- The five matrices are symmetric and positive semidefinite, sum to `5 I`,
-and the kernel of each `Aₖ` is the line through `κₖ = 1 - 5 yₖ`. -/
-theorem family_psd :
-    (∀ k i j, A k i j = A k j i) ∧
-      (∀ k v, 0 ≤ dot v (mv (A k) v)) ∧
-      (∀ i j, sumA i j = (5 : Rat) * (if i = j then 1 else 0)) ∧
-      (∀ k i, mv (A k) (kappa k) i = 0) ∧
-      (∀ k v, dot v (mv (A k) v) = 0 → ∀ i, v i = (dot ones v / 5) * kappa k i) := by
+noncomputable section
+
+/-- The arithmetic mean of five square matrices. -/
+def arithmeticMean {n K : Type*} [Fintype n] [Field K]
+    (A : Fin 5 → Matrix n n K) : Matrix n n K :=
+  (1 / 5 : K) • ∑ k, A k
+
+/-- The average of all 120 ordered products, indexed by genuine permutations. -/
+def permutationAverage {n K : Type*} [Fintype n] [DecidableEq n] [Field K]
+    (A : Fin 5 → Matrix n n K) : Matrix n n K :=
+  (1 / 120 : K) • ∑ σ : Equiv.Perm (Fin 5),
+    A (σ 0) * A (σ 1) * A (σ 2) * A (σ 3) * A (σ 4)
+
+/-- Five real PSD matrices in dimension 3 violate the norm-of-average
+Recht–Ré inequality at `n = k = 5`, with exact ratio `10329/10000`.
+Every matrix norm is the Euclidean operator norm. -/
+theorem real_counterexample :
+    ∃ A : Fin 5 → Matrix (Fin 3) (Fin 3) ℝ,
+      (∀ k, (A k).PosSemidef) ∧
+      (∑ k, A k = (100 : Matrix (Fin 3) (Fin 3) ℝ)) ∧
+      (permutationAverage A = diagonal ![-3305280, -291264, -291264]) ∧
+      ‖arithmeticMean A‖ = 20 ∧ ‖permutationAverage A‖ = 3305280 ∧
+      ‖arithmeticMean A ^ 5‖ = 3200000 ∧
+      ‖arithmeticMean A ^ 5‖ < ‖permutationAverage A‖ ∧
+      ‖permutationAverage A‖ / ‖arithmeticMean A‖ ^ 5 = (10329 / 10000 : ℝ) := by
   sorry
 
-/-- `perms` is exactly `S₅`, and the average of the ordered products is
-`(29/64) I - (21/64) J`. -/
-theorem average_closed :
-    perms.length = 120 ∧ perms.Nodup ∧ (∀ p ∈ perms, isPerm p = true) ∧
-      (∀ p, isPerm p = true → p ∈ perms) ∧ reshuffle = closed := by
+/-- Five complex PSD matrices in dimension 2 violate the norm-of-average
+Recht–Ré inequality at `n = k = 5`, with exact ratio `10329/10000`.
+Every matrix norm is the Euclidean operator norm. -/
+theorem complex_counterexample :
+    ∃ A : Fin 5 → Matrix (Fin 2) (Fin 2) ℂ,
+      (∀ k, (A k).PosSemidef) ∧
+      (∑ k, A k = (100 : Matrix (Fin 2) (Fin 2) ℂ)) ∧
+      (permutationAverage A = diagonal ![-3305280, -2941824]) ∧
+      ‖arithmeticMean A‖ = 20 ∧ ‖permutationAverage A‖ = 3305280 ∧
+      ‖arithmeticMean A ^ 5‖ = 3200000 ∧
+      ‖arithmeticMean A ^ 5‖ < ‖permutationAverage A‖ ∧
+      ‖permutationAverage A‖ / ‖arithmeticMean A‖ ^ 5 = (10329 / 10000 : ℝ) := by
   sorry
 
-/-- Every vector is expanded by at most `19/16` in Euclidean norm. -/
-theorem operator_norm (v : Fin 5 → Rat) : sq (mv reshuffle v) * 256 ≤ 361 * sq v := by
-  sorry
-
-/-- The bound is attained on the all-ones vector. -/
-theorem operator_norm_sharp :
-    (mv reshuffle ones = fun _ => (-19 / 16 : Rat)) ∧
-      (sq (mv reshuffle ones) * 256 = 361 * sq ones) ∧ sq ones = 5 ∧
-      ((19 / 16 : Rat) ^ 2 = 361 / 256) := by
-  sorry
-
-/-- Terminal values through the first violation, the `n = 5` age table, and `a₁₀`. -/
-theorem recurrence_bound :
-    seq 2 2 = 0 ∧ seq 3 3 = -1 / 2 ∧ seq 4 4 = -8 / 9 ∧ seq 5 5 = -19 / 16 ∧
-      seq 10 10 = -99712 / 59049 ∧
-      seq 5 0 = 1 ∧ seq 5 1 = 1 ∧ seq 5 2 = 3 / 4 ∧ seq 5 3 = 1 / 4 ∧
-      seq 5 4 = -7 / 16 ∧ seq 5 5 = -19 / 16 ∧
-      seq 2 2 ≤ (1 : Rat) ∧ -(seq 2 2) ≤ 1 ∧
-      seq 3 3 ≤ 1 ∧ -(seq 3 3) ≤ 1 ∧
-      seq 4 4 ≤ 1 ∧ -(seq 4 4) ≤ 1 ∧
-      1 < -(seq 5 5) := by
-  sorry
+end
 
 end RRExact

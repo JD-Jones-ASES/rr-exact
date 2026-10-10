@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Exact rational certificate for the De Sa family at n = 5.
 
-Proves, over the rationals, that the five matrices below are symmetric and
-positive semidefinite, sum to 5 I, and that the average over S_5 of their
+Checks, over the rationals, that the five matrices below are symmetric,
+have the displayed kernel vectors, sum to 5 I, and that the average over S_5 of their
 ordered products is exactly (29/64) I - (21/64) 11^T. The eigenvalues of that
 matrix are -19/16 (multiplicity 1) and 29/64 (multiplicity 4), so its operator
 norm is 19/16.
+
+The quadratic-form checks use three selected vectors; they are regression
+controls, not a proof of positive semidefiniteness for every vector. The PSD
+proof is in RRExact/PSD.lean and the mathematical argument in PROOF.md.
 
 Also checks the age recurrence that sends the all-ones vector to a_n times
 itself, for every n from 2 through 40, against the second-order recurrence.
@@ -199,7 +203,7 @@ def main():
         a, S = age_factor(n)
         if a[-1] != second_order(n):
             fail(f"n={n}: recurrences disagree")
-        print(f"n={n}: PSD, sum = {n} I, a_n = {a[-1]}")
+        print(f"n={n}: symmetry, kernel, sum = {n} I, selected-vector controls; a_n = {a[-1]}")
         if n == 5:
             if a[-1] != Fraction(-19, 16):
                 fail("a_5")

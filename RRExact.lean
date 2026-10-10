@@ -1,10 +1,11 @@
 module
 
 public import RRExact.Main
+public import RRExact.Canonical
 
 @[expose] public section
 
 /-!
-Exact norm `19/16` for De Sa's positive-semidefinite counterexample
-to the Recht–Ré inequality at `n = 5`.
+Exact real `3 × 3` and complex Hermitian `2 × 2` counterexamples to Recht–Ré,
+with De Sa's dimension-five family retained as an exact benchmark.
 -/

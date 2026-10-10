@@ -1,0 +1,67 @@
+name: Verify exact source
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fresh-build:
+    name: Fresh Linux full-library build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Record and check immutable source
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          test ! -d .lake
+          git rev-parse HEAD
+          python3 scripts/check_contract.py
+      - name: Exact arithmetic replays and negative controls
+        run: |
+          for mode in normal optimized; do
+            options=()
+            if [ "$mode" = optimized ]; then options=(-O); fi
+            for script in check_certificate check_low_dim check_complex_certificate check_complex_family check_real_2x2_family check_negative_controls; do
+              python3 "${options[@]}" "scripts/$script.py"
+            done
+          done
+      - name: Install pinned elan
+        run: |
+          curl --fail --location --retry 3 https://github.com/leanprover/elan/releases/download/v4.2.3/elan-x86_64-unknown-linux-gnu.tar.gz -o "$RUNNER_TEMP/elan.tar.gz"
+          echo "df0b2b3a439961ffcbb3985214365ffe40f49bc871df04dff268c7d8e21ca8b2  $RUNNER_TEMP/elan.tar.gz" | sha256sum --check
+          mkdir "$RUNNER_TEMP/elan"
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP/elan"
+          "$RUNNER_TEMP/elan/elan-init" -y --no-modify-path --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned dependency cache
+        run: lake exe cache get
+      - name: Build every library target from fresh project outputs
+        run: bash scripts/build_lean.sh
+      - name: Audit principal and supporting theorem axioms
+        run: python3 scripts/check_axioms.py
+      - name: Check tracked source stayed unchanged
+        run: git diff --exit-code
+
+  # The source repository is public. This reusable job has no registry state
+  # or credentials: it is mechanical preflight, not submission/registration.
+  palomar-preflight:
+    name: Official full Palomar mechanical preflight
+    uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44
+    with:
+      repository: ${{ github.repository }}
+      commit: ${{ github.sha }}
+      pipeline_commit: d4e41c1d5b0d114c4859e6e5831dc6d3ad1d0d44
+      request_id: rrexactci001
+      mode: full
+      execution_profile: palomar-standard-v1
+      options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'

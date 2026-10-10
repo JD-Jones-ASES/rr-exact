@@ -2,11 +2,8 @@
   "challenge_module": "RRExactChallenge",
   "solution_module": "RRExactSolution",
   "theorem_names": [
-    "RRExact.family_psd",
-    "RRExact.average_closed",
-    "RRExact.operator_norm",
-    "RRExact.operator_norm_sharp",
-    "RRExact.recurrence_bound"
+    "RRExact.real_counterexample",
+    "RRExact.complex_counterexample"
   ],
   "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
 }

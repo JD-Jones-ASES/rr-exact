@@ -1,0 +1,5 @@
+spin.so
+spin.dylib
+spin.dll
+results/
+__pycache__/

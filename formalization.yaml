@@ -1,65 +1,83 @@
 version: v0.4
 project:
-  name: Exact norm 19/16 for a PSD Recht–Ré counterexample
+  name: Low-dimensional exact counterexamples to the Recht–Ré inequality
   description: >-
-    De Sa's five rational positive-semidefinite 5×5 matrices sum to 5I, and the
-    average of their 120 ordered products is exactly (29/64)I − (21/64)J. The
-    operator norm of that average is 19/16, attained on the all-ones vector.
-    The same all-ones factor is the fifth term of the rational recurrence
-    a_0 = a_1 = 1, a_{t+2} = 2 a_{t+1} − (n/(n−1)) a_t, which stays at most 1
-    in absolute value for n = 2, 3, 4. This is not a minimal-dimension theorem,
-    not the symmetric-product form, and not a claim that |a_n| > 1 for every
-    n ≥ 5.
+    Five real symmetric PSD 3×3 integer matrices and five complex Hermitian
+    PSD 2×2 Gaussian-integer matrices each have sum 100I and exact
+    norm-of-averaged-product ratio 10329/10000 at n=k=5. The Lean
+    statements use Mathlib positive semidefiniteness over the real and
+    complex fields and the Euclidean operator norm. The rational
+    formalization of De Sa's dimension-five norm-19/16 example is included
+    as a supporting benchmark. The real symmetric dimension-two case is not resolved.
   authors: [JD Jones]
   responsible_maintainers: [JD Jones]
   license: MIT
 classification:
-  arxiv: [math.FA, math.OC]
+  arxiv: [math.OC, math.FA]
   msc2020: ["15A45", "15A60", "47A30"]
 sources:
-  - title: Exact norm of a PSD counterexample to the Recht–Ré inequality
+  - title: Exact real 3×3 and complex 2×2 counterexamples to the Recht–Ré inequality
     type: other
     authors: [JD Jones]
     relationship: formalizes
     notes: >-
-      The argument, the age recurrence, and the exact identification of the
-      operator norm are written in PROOF.md. The matrices are De Sa's.
+      note/LOW_DIMENSION.md gives the explicit examples, elementary
+      product formulas, and supplementary family analysis. The compared
+      declarations are two existential real/complex counterexamples;
+      general parameter and optimization results are not additional
+      compared Lean claims.
   - title: Random Reshuffling is Not Always Better
     type: paper
     authors: [Christopher De Sa]
     year: 2020
     relationship: adapts
     notes: >-
-      NeurIPS 2020. Source of the family and of the fact that the operator
-      inequality fails at n = 5. The paper checks the average numerically;
-      this formalization replaces that check.
+      NeurIPS 2020. Source of the dimension-five benchmark matrices,
+      exact averaged-product formula, exact spectrum and ratio 19/16.
+      These mathematical values were already explicit in De Sa's paper.
+      The real construction here reduces the dimension of that benchmark.
   - title: Toward a Noncommutative Arithmetic-Geometric Mean Inequality
     type: paper
     authors: [Benjamin Recht, Christopher Ré]
     year: 2012
-    relationship: cites
-    notes: COLT 2012, Conjecture 1, the inequality refuted here.
+    relationship: background
+    notes: >-
+      COLT 2012, Conjecture 1, formula (8). The present result concerns
+      the norm of the averaged ordered product, not formula (9).
+  - title: Recht–Ré Noncommutative Arithmetic-Geometric Mean Conjecture is False
+    type: paper
+    authors: [Zehua Lai, Lek-Heng Lim]
+    year: 2020
+    relationship: background
+    notes: ICML 2020; nonconstructive five-factor disproof and low-length results.
 automation:
   methods:
     - method: agent
-      tool_setup: Grok (xAI) with the Lean 4.35 kernel and an independent Python rational checker
+      tool_setup: OpenAI GPT, Claude (Anthropic), and Grok (xAI)
       notes: >-
-        An agent wrote the elementary argument, the exact rational certificate,
-        and the Lean proof. Finite matrix steps are simp and norm_num proof
-        terms checked by the kernel. No sorry remains outside the challenge,
-        and native_decide is not used.
+        AI assistance was used for research, computation, writing, and
+        formalization. OpenAI GPT prepared the final manuscript and
+        formalization package. Finite integer and Gaussian-integer products
+        use ordinary kernel decide and standard Mathlib positivity and
+        Euclidean operator-norm results. No native_decide is used.
 review:
   status: agent-reviewed
   notes: >-
-    The Python checker and the Lean development were produced in the same
-    effort and compared against PROOF.md. This is internal agent review, not
-    external human peer review. No endorsement by the authors of the source
-    papers is claimed.
+    Exact permutation enumeration, an independent subset recurrence for
+    the real witness, symbolic coefficient checks, and formal statements
+    are available for review. Automated checks and AI-assisted review
+    are not external human peer review. Release verification must be
+    established by exact-commit Linux CI.
 fidelity:
   notes: >-
-    The compared theorems are symmetry, positive-semidefiniteness, the sum 5I,
-    the kernel line, the identification of the S_5 average with (29/64)I − (21/64)J,
-    the operator-norm bound 19/16 with equality on the all-ones vector, and the
-    rational recurrence through a_5 = −19/16 together with a_10. Dimension below
-    5, the symmetric-product inequality, and a closed description of
-    {n : |a_n| > 1} are outside the claim.
+    Two Mathlib-only challenge contracts assert existential real 3x3
+    and complex 2x2 counterexamples, with standard permutation sums,
+    PSD, scalar sums, full Euclidean operator norms, strict failure,
+    and exact ratio 10329/10000. Concrete witness lemmas and the rational
+    De Sa dimension-five benchmark are supporting library results.
+    Rank descriptions, scalar dimension-one exclusion, parameterized
+    families, family-specific optima, padding, positive definite
+    perturbations, and optimization applications are supplementary
+    written proofs, not additional compared Lean claims. No unrestricted
+    real 2x2 exclusion, separate palindromic disproof, or global optimum
+    over matrix tuples is claimed.

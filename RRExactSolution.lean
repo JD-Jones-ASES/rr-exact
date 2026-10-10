@@ -1,5 +1,5 @@
 module
 
-public import RRExact
+public import RRExact.Canonical
 
-/-! Proofs of the statements in `RRExactChallenge`. -/
+/-! Proofs of the two standalone statements in `RRExactChallenge`. -/
