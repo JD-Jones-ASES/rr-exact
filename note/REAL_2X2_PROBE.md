@@ -74,7 +74,7 @@ Since `n >= 4`, the magnitude of the second entry is at least that of the first.
 Therefore
 
 ```math
- \VertQ_n\Vert_{\mathrm{op}}=
+ \Vert Q_n\Vert_{\mathrm{op}}=
  \frac{2b^2cd^m}{n(n-1)}.
  \qquad\text{(R2)}
 ```

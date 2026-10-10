@@ -79,7 +79,7 @@ of the second throughout the allowed parameter interval. This proves the full
 operator-norm identity, including the absolute values:
 
 ```math
- \boxed{\VertQ(r)\Vert_{\mathrm{op}}
+ \boxed{\Vert Q(r)\Vert_{\mathrm{op}}
  =f(r^2)=\frac{625}{768}r^2(1-r^2)(3r^4+2r^2+3).}
  \qquad\text{(C7)}
 ```
@@ -152,7 +152,7 @@ positive derivative `36x^2-6x+2`. Since `f'(0)>0` and `f'(1)<0`, the root lies i
 ```
 
 ```math
- \max_{0\le r\le1}\VertQ(r)\Vert_{\mathrm{op}}
+ \max_{0\le r\le1}\Vert Q(r)\Vert_{\mathrm{op}}
  =f(x_{\ast})\approx1.0341426052836649.
 ```
 

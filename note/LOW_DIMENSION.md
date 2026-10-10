@@ -15,8 +15,8 @@ For PSD matrices over $\mathbb F=\mathbb R$ or $\mathbb C$, write
 The norm is the Euclidean operator norm. The inequality under consideration is
 
 ```math
- \VertR_k(A)\Vert_{\mathrm{op}}\le \VertM(A)^k\Vert_{\mathrm{op}}
- =\VertM(A)\Vert_{\mathrm{op}}^k. \qquad\text{(1)}
+ \Vert R_k(A)\Vert_{\mathrm{op}}\le \Vert M(A)^k\Vert_{\mathrm{op}}
+ =\Vert M(A)\Vert_{\mathrm{op}}^k. \qquad\text{(1)}
 ```
 
 This is the norm of an averaged product. It is not an average of product norms or the
@@ -64,7 +64,7 @@ Their quadratic forms are
 ```
 
 Each is the sum of squares of two independent linear forms, so each matrix is PSD of
-rank two. Their sum is $100I_3$, hence $M=20I_3$ and $\VertM^5\Vert=20^5=3200000$.
+rank two. Their sum is $100I_3$, hence $M=20I_3$ and $\Vert M^5\Vert=20^5=3200000$.
 
 The exact product identity is
 
@@ -118,7 +118,7 @@ Consequently
 
 ```math
  R_5(H)=\mathrm{diag}(-3305280,-2941824),\qquad
- \VertR_5(H)\Vert=3305280>20^5.
+ \Vert R_5(H)\Vert=3305280>20^5.
 ```
 
 The real and imaginary parts of every arithmetic operation in the independent checker
