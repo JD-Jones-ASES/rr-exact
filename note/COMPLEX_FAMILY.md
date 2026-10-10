@@ -15,7 +15,7 @@ For a real parameter `0 <= r <= 1`, set
  B_\pm(r)=\frac54
  \begin{pmatrix}1&\pm ir\\\mp ir&r^2\end{pmatrix},\qquad
  C(r)=\begin{pmatrix}0&0\\0&5(1-r^2)\end{pmatrix}.
- \tag{C1}
+ \qquad\text{(C1)}
 ```
 
 The first four matrices are positive multiples of outer products of `(1,r)`, `(1,-r)`,
@@ -28,13 +28,13 @@ Let `Q(r)` be the average of their 120 ordered products. It is diagonal, with
 ```math
  Q_{11}(r)=\frac{625}{768}
    (-3r^2+r^4-r^6+3r^8),
- \tag{C2}
+ \qquad\text{(C2)}
 ```
 
 ```math
  Q_{22}(r)=\frac{625}{768}
    (-2r^2-r^4-9r^6+27r^8-15r^{10}).
- \tag{C3}
+ \qquad\text{(C3)}
 ```
 
 These identities can be checked as polynomial identities, without numerical sampling:
@@ -50,13 +50,13 @@ Put `x=r^2`. Equations (C2) and (C3) factor as
 
 ```math
  -Q_{11}=\frac{625}{768}x(1-x)(3x^2+2x+3)=:f(x),
- \tag{C4}
+ \qquad\text{(C4)}
 ```
 
 ```math
  -Q_{22}=\frac{625}{768}x(1-x)
  \left[2+3x(1-x)(1+5x)\right].
- \tag{C5}
+ \qquad\text{(C5)}
 ```
 
 Both eigenvalues are nonpositive for `0<=x<=1`. Their negative magnitudes differ by the
@@ -71,7 +71,7 @@ The exact rational sum-of-squares identity
 ```math
  P(x)=15x\left(x-\frac12\right)^2
        +6\left(x-\frac{19}{48}\right)^2+\frac{23}{384}
- \tag{C6}
+ \qquad\text{(C6)}
 ```
 
 shows that `P(x)>0` for all `x>=0`. Thus the first eigenvalue has at least the magnitude
@@ -79,9 +79,9 @@ of the second throughout the allowed parameter interval. This proves the full
 operator-norm identity, including the absolute values:
 
 ```math
- \boxed{\|Q(r)\|_{\mathrm{op}}
+ \boxed{\VertQ(r)\Vert_{\mathrm{op}}
  =f(r^2)=\frac{625}{768}r^2(1-r^2)(3r^4+2r^2+3).}
- \tag{C7}
+ \qquad\text{(C7)}
 ```
 
 The mean is `I`, so (C7) is also the exact ratio in the norm-of-average Recht–Ré
@@ -93,7 +93,7 @@ The family violates the conjectured bound exactly when `f(x)>1`, or
 
 ```math
  W(x):=1875x^4-625x^3+625x^2-1875x+768<0.
- \tag{C8}
+ \qquad\text{(C8)}
 ```
 
 There are exactly two roots of `W` in `(0,1)`. Denote them by `x_-<x_+`. They specify
@@ -139,7 +139,7 @@ The unique maximizer is the real root $x_{\ast}$ of
 
 ```math
  12x_{\ast}^3-3x_{\ast}^2+2x_{\ast}-3=0.
- \tag{C9}
+ \qquad\text{(C9)}
 ```
 
 Strict concavity gives uniqueness. Equivalently, the left side of (C9) has strictly
@@ -152,7 +152,7 @@ positive derivative `36x^2-6x+2`. Since `f'(0)>0` and `f'(1)<0`, the root lies i
 ```
 
 ```math
- \max_{0\le r\le1}\|Q(r)\|_{\mathrm{op}}
+ \max_{0\le r\le1}\VertQ(r)\Vert_{\mathrm{op}}
  =f(x_{\ast})\approx1.0341426052836649.
 ```
 

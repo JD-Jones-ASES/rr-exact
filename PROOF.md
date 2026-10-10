@@ -11,7 +11,7 @@ expansion enters: one hundred twenty products of explicit $5\times 5$ rational m
 
 ## Statement
 
-For $n\geq 2$ and $k\in\{1,\ldots,n\}$, define $y_k\in\mathbb{R}^n$ by
+For $n\geq 2$ and $k\in\lbrace 1,\ldots,n\rbrace $, define $y_k\in\mathbb{R}^n$ by
 ```math
 (y_k)_k=\frac{\sqrt{n-1}}{n},\qquad (y_k)_i=-\frac{1}{n\sqrt{n-1}}\quad(i\neq k),
 ```
@@ -105,7 +105,7 @@ For the quadratic form, $\mathbf{1}\perp y_k$ gives
 v^{\mathsf T}A_k v=\lVert v\rVert^2+2(\mathbf{1}\cdot v)(y_k\cdot v).
 ```
 Pythagoras in the orthogonal decomposition
-$\mathrm{span}\{\mathbf{1},y_k\}\oplus\mathrm{span}\{\mathbf{1},y_k\}^\perp$
+$\mathrm{span}\lbrace \mathbf{1},y_k\rbrace \oplus\mathrm{span}\lbrace \mathbf{1},y_k\rbrace ^\perp$
 gives
 ```math
 \lVert v\rVert^2\geq\frac{s^2}{n}+n t^2,
@@ -115,7 +115,7 @@ $\lVert y_k\rVert^2=1/n$. Therefore
 ```math
 v^{\mathsf T}A_k v\geq\frac{s^2}{n}+nt^2+2st=\frac{(s+nt)^2}{n}\geq 0.
 ```
-Equality holds if and only if $v\in\mathrm{span}\{\mathbf{1},y_k\}$ and $s+nt=0$,
+Equality holds if and only if $v\in\mathrm{span}\lbrace \mathbf{1},y_k\rbrace $ and $s+nt=0$,
 i.e. on the line spanned by $\kappa_k=\mathbf{1}-n y_k$. Directly,
 ```math
 A_k\kappa_k=(\mathbf{1}-ny_k)+(y_k\cdot\kappa_k)\mathbf{1}+(\mathbf{1}\cdot\kappa_k)y_k
@@ -210,7 +210,7 @@ identity
 \mathrm{rr}(A_1,\ldots,A_5)=\frac{29}{64}\,I-\frac{21}{64}\,J.
 ```
 A scalar matrix plus a multiple of $J$ acts by $\beta+n\gamma$ on
-$\mathrm{span}\{\mathbf{1}\}$ and by $\beta$ on $\mathbf{1}^\perp$. Here
+$\mathrm{span}\lbrace \mathbf{1}\rbrace $ and by $\beta$ on $\mathbf{1}^\perp$. Here
 $\beta=29/64$ and $\gamma=-21/64$, so
 ```math
 \beta+5\gamma=\frac{29}{64}-\frac{105}{64}=-\frac{76}{64}=-\frac{19}{16},
@@ -258,7 +258,7 @@ The symmetric-product form, with positive-semidefinite square roots of the $A_k$
 Sa's second inequality. It is not reproved here. The square roots are real, but they are
 not rational.
 
-No closed description of $\{n:|a_n|>1\}$ is claimed beyond the terms the certificate
+No closed description of $\lbrace n:|a_n|>1\rbrace $ is claimed beyond the terms the certificate
 computes. For $n\neq5$, the benchmark Lean development does not determine the operator
 norm. The all-ones factor gives a lower bound; De Sa's general Statement 1 also
 specifies the complementary eigenvalue.

@@ -80,7 +80,7 @@ with `v[2] sigma_y` in the complex case. Its Jordan product is
 
 ```math
  S(\varnothing)=I,\qquad
- S(U)=\frac1{|U|}\sum_{i\in U} A_i\circ S(U\setminus\{i\}).
+ S(U)=\frac1{|U|}\sum_{i\in U} A_i\circ S(U\setminus\lbrace i\rbrace ).
 ```
 
 Reversal pairs the ordered products, so their average is Hermitian and this Jordan

@@ -15,8 +15,8 @@ For PSD matrices over $\mathbb F=\mathbb R$ or $\mathbb C$, write
 The norm is the Euclidean operator norm. The inequality under consideration is
 
 ```math
- \|R_k(A)\|_{\mathrm{op}}\le \|M(A)^k\|_{\mathrm{op}}
- =\|M(A)\|_{\mathrm{op}}^k. \tag{1}
+ \VertR_k(A)\Vert_{\mathrm{op}}\le \VertM(A)^k\Vert_{\mathrm{op}}
+ =\VertM(A)\Vert_{\mathrm{op}}^k. \qquad\text{(1)}
 ```
 
 This is the norm of an averaged product. It is not an average of product norms or the
@@ -64,13 +64,13 @@ Their quadratic forms are
 ```
 
 Each is the sum of squares of two independent linear forms, so each matrix is PSD of
-rank two. Their sum is $100I_3$, hence $M=20I_3$ and $\|M^5\|=20^5=3200000$.
+rank two. Their sum is $100I_3$, hence $M=20I_3$ and $\VertM^5\Vert=20^5=3200000$.
 
 The exact product identity is
 
 ```math
  \sum_{\sigma\in S_5}A_{\sigma(1)}\cdots A_{\sigma(5)}
- =\mathrm{diag}(-396633600,-34951680,-34951680). \tag{2}
+ =\mathrm{diag}(-396633600,-34951680,-34951680). \qquad\text{(2)}
 ```
 
 Dividing by 120 gives the average in Theorem 1. Its largest absolute eigenvalue is
@@ -111,14 +111,14 @@ Gaussian-integer multiplication gives
 
 ```math
  \sum_{\sigma\in S_5}H_{\sigma(1)}\cdots H_{\sigma(5)}
- =\mathrm{diag}(-396633600,-353018880). \tag{3}
+ =\mathrm{diag}(-396633600,-353018880). \qquad\text{(3)}
 ```
 
 Consequently
 
 ```math
  R_5(H)=\mathrm{diag}(-3305280,-2941824),\qquad
- \|R_5(H)\|=3305280>20^5.
+ \VertR_5(H)\Vert=3305280>20^5.
 ```
 
 The real and imaginary parts of every arithmetic operation in the independent checker
@@ -144,16 +144,16 @@ For real parameters $a,b,t,d,c$, define
 Their average full product is exactly
 
 ```math
- R_5(X_+,X_-,Y_+,Y_-,Z)=\mathrm{diag}(q_0,q_1,q_1), \tag{4}
+ R_5(X_+,X_-,Y_+,Y_-,Z)=\mathrm{diag}(q_0,q_1,q_1), \qquad\text{(4)}
 ```
 where
 
 ```math
- q_0=-\frac{b^2c}{15}(3a^2+4ad-2b^2+3d^2), \tag{5}
+ q_0=-\frac{b^2c}{15}(3a^2+4ad-2b^2+3d^2), \qquad\text{(5)}
 ```
 ```math
  q_1=\frac{c}{30}
- \left(-2a^2b^2-6ab^2d+3b^4-12b^2d^2+30d^2t^2\right). \tag{6}
+ \left(-2a^2b^2-6ab^2d+3b^4-12b^2d^2+30d^2t^2\right). \qquad\text{(6)}
 ```
 
 **Proof of the identity.** Conjugating by either coordinate sign change in the last two
@@ -186,7 +186,7 @@ Assume
 
 ```math
  a>0,\qquad t=\frac{b^2}{a},\qquad d\ge0,\qquad
- c=4a-2t-2d\ge0. \tag{7}
+ c=4a-2t-2d\ge0. \qquad\text{(7)}
 ```
 
 Then all five matrices are PSD and their sum is $4aI_3$. For example,
@@ -201,7 +201,7 @@ central negative-eigenvalue ratio becomes
 
 ```math
  \mathcal R(x,y)=\frac{-q_0}{(4a/5)^5}
- =\frac{625}{1536}\,x(2-x-y)(3+4y+3y^2-2x). \tag{8}
+ =\frac{625}{1536}\,x(2-x-y)(3+4y+3y^2-2x). \qquad\text{(8)}
 ```
 
 Every point with $\mathcal R(x,y)>1$ proves a violation. This is a sufficient condition
@@ -280,10 +280,10 @@ For $r<1$, all five have rank one; at $r=1$ the fifth is zero. Their average ful
 product is diagonal, with entries
 
 ```math
- \lambda_0=\frac{625}{768}(-3r^2+r^4-r^6+3r^8), \tag{9}
+ \lambda_0=\frac{625}{768}(-3r^2+r^4-r^6+3r^8), \qquad\text{(9)}
 ```
 ```math
- \lambda_1=\frac{625}{768}(-2r^2-r^4-9r^6+27r^8-15r^{10}). \tag{10}
+ \lambda_1=\frac{625}{768}(-2r^2-r^4-9r^6+27r^8-15r^{10}). \qquad\text{(10)}
 ```
 
 The case $r=4/5$, scaled by 20, is Theorem 2. Putting $s=r^2$, the exact operator norm
@@ -353,7 +353,7 @@ The strict-violation margin is
  -q_0(\delta)-(20+\delta)^5
  ={}&105280-\frac{1378675}{3}\delta-97700\delta^2\\
  &-6950\delta^3-200\delta^4-2\delta^5.
-\end{aligned} \tag{11}
+\end{aligned} \qquad\text{(11)}
 ```
 
 All nonconstant coefficients are negative. At $\delta=1/5$ the right side is

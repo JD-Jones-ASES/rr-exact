@@ -4,9 +4,9 @@ Five real symmetric positive-semidefinite **3 × 3 integer matrices** and five c
 Hermitian positive-semidefinite **2 × 2 Gaussian-integer matrices** each satisfy
 
 ```math
-\frac{\left\|\frac1{120}\sum_{\sigma\in S_5}
- A_{\sigma(0)}A_{\sigma(1)}A_{\sigma(2)}A_{\sigma(3)}A_{\sigma(4)}\right\|_{\mathrm{op}}}
- {\left\|\frac15\sum_{i=0}^4 A_i\right\|_{\mathrm{op}}^5}
+\frac{\left\Vert\frac1{120}\sum_{\sigma\in S_5}
+ A_{\sigma(0)}A_{\sigma(1)}A_{\sigma(2)}A_{\sigma(3)}A_{\sigma(4)}\right\Vert_{\mathrm{op}}}
+ {\left\Vert\frac15\sum_{i=0}^4 A_i\right\Vert_{\mathrm{op}}^5}
 =\frac{10329}{10000}>1.
 ```
 

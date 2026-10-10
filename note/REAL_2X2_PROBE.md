@@ -47,7 +47,7 @@ For this family, the symmetrized product is diagonal:
  \frac{4b^2cd^m}{n(n-1)(n-2)},\;
  \frac{2b^2cd^m}{n(n-1)}
  \right).
- \tag{R1}
+ \qquad\text{(R1)}
 ```
 
 First, conjugation by `diag(1,-1)` interchanges `A_+` and `A_-`, fixes all other
@@ -74,9 +74,9 @@ Since `n >= 4`, the magnitude of the second entry is at least that of the first.
 Therefore
 
 ```math
- \|Q_n\|_{\mathrm{op}}=
+ \VertQ_n\Vert_{\mathrm{op}}=
  \frac{2b^2cd^m}{n(n-1)}.
- \tag{R2}
+ \qquad\text{(R2)}
 ```
 
 ### Exact optimum within this family
@@ -101,7 +101,7 @@ achieves both bounds simultaneously. Thus the exact family maximum is
 
 ```math
  \boxed{R_n=\frac{n^{n-1}}{8(n-1)(n-2)^{n-2}}.}
- \tag{R3}
+ \qquad\text{(R3)}
 ```
 
 An attaining tuple consists of
