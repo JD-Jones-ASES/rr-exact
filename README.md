@@ -25,4 +25,4 @@ lake build RRExact RRExactChallenge RRExactSolution
 
 Lean `v4.35.0-rc3`, Mathlib `a98628e16c11f5167f16124105ddce53efa9bfe5`. The permitted axioms are `propext`, `Quot.sound`, and `Classical.choice`.
 
-License: [MIT](LICENSE) for the code. [PROOF.md](PROOF.md) and [note/PALOMAR.md](note/PALOMAR.md) are [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+License: [MIT](LICENSE).
