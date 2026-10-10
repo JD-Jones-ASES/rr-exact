@@ -135,10 +135,10 @@ Concavity in `x` proves the claim between these endpoints.
 
 ## The maximum within the family
 
-The unique maximizer is the real root `x_*` of
+The unique maximizer is the real root $x_{\ast}$ of
 
 ```math
- 12x_*^3-3x_*^2+2x_*-3=0.
+ 12x_{\ast}^3-3x_{\ast}^2+2x_{\ast}-3=0.
  \tag{C9}
 ```
 
@@ -147,13 +147,13 @@ positive derivative `36x^2-6x+2`. Since `f'(0)>0` and `f'(1)<0`, the root lies i
 `(0,1)`. Numerically,
 
 ```math
- x_*\approx0.6243648435583831,\qquad
- r_*=\sqrt{x_*}\approx0.790167604725974,
+ x_{\ast}\approx0.6243648435583831,\qquad
+ r_{\ast}=\sqrt{x_{\ast}}\approx0.790167604725974,
 ```
 
 ```math
  \max_{0\le r\le1}\|Q(r)\|_{\mathrm{op}}
- =f(x_*)\approx1.0341426052836649.
+ =f(x_{\ast})\approx1.0341426052836649.
 ```
 
 This optimizes only the family (C1). It is not an asserted optimum for arbitrary complex
@@ -164,7 +164,7 @@ The convenient rational choice `r=4/5` yields
 ```math
  A_\pm=\begin{pmatrix}5/4&\pm1\\\pm1&4/5\end{pmatrix},\quad
  B_\pm=\begin{pmatrix}5/4&\pm i\\\mp i&4/5\end{pmatrix},\quad
- C=\operatorname{diag}(0,9/5),
+ C=\mathrm{diag}(0,9/5),
 ```
 
 with average-product spectrum `-10329/10000, -22983/25000`. Multiplication by `20` gives

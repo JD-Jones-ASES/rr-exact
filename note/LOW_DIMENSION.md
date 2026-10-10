@@ -23,12 +23,12 @@ This is the norm of an averaged product. It is not an average of product norms o
 separate palindromic/second-moment conjecture. Our primary examples have $n=k=5$.
 
 **Theorem 1 (real dimension three).** Five explicit symmetric integer matrices of rank
-two have sum $100I_3$, averaged product $\operatorname{diag}(-3305280,-291264,-291264)$,
+two have sum $100I_3$, averaged product $\mathrm{diag}(-3305280,-291264,-291264)$,
 and ratio $10329/10000>1$ in (1).
 
 **Theorem 2 (complex dimension two).** Five explicit Hermitian Gaussian-integer matrices
 of rank one have sum $100I_2$, averaged product
-$\operatorname{diag}(-3305280,-2941824)$, and the same ratio.
+$\mathrm{diag}(-3305280,-2941824)$, and the same ratio.
 
 The complex dimension is minimal: in dimension one the matrices are nonnegative real
 numbers and the scalar AM–GM inequality applies. No minimality theorem in the real case
@@ -70,7 +70,7 @@ The exact product identity is
 
 ```math
  \sum_{\sigma\in S_5}A_{\sigma(1)}\cdots A_{\sigma(5)}
- =\operatorname{diag}(-396633600,-34951680,-34951680). \tag{2}
+ =\mathrm{diag}(-396633600,-34951680,-34951680). \tag{2}
 ```
 
 Dividing by 120 gives the average in Theorem 1. Its largest absolute eigenvalue is
@@ -111,13 +111,13 @@ Gaussian-integer multiplication gives
 
 ```math
  \sum_{\sigma\in S_5}H_{\sigma(1)}\cdots H_{\sigma(5)}
- =\operatorname{diag}(-396633600,-353018880). \tag{3}
+ =\mathrm{diag}(-396633600,-353018880). \tag{3}
 ```
 
 Consequently
 
 ```math
- R_5(H)=\operatorname{diag}(-3305280,-2941824),\qquad
+ R_5(H)=\mathrm{diag}(-3305280,-2941824),\qquad
  \|R_5(H)\|=3305280>20^5.
 ```
 
@@ -138,13 +138,13 @@ For real parameters $a,b,t,d,c$, define
 ```math
  X_\pm=\begin{pmatrix}a&\pm b&0\\\pm b&t&0\\0&0&d\end{pmatrix},\quad
  Y_\pm=\begin{pmatrix}a&0&\pm b\\0&d&0\\\pm b&0&t\end{pmatrix},\quad
- Z=\operatorname{diag}(0,c,c).
+ Z=\mathrm{diag}(0,c,c).
 ```
 
 Their average full product is exactly
 
 ```math
- R_5(X_+,X_-,Y_+,Y_-,Z)=\operatorname{diag}(q_0,q_1,q_1), \tag{4}
+ R_5(X_+,X_-,Y_+,Y_-,Z)=\mathrm{diag}(q_0,q_1,q_1), \tag{4}
 ```
 where
 
@@ -213,7 +213,7 @@ The values $(a,b,t,d,c)=(16,12,9,11,24)$ give five integer matrices with largest
 absolute entry 24 and mean $(64/5)I_3$. Formula (4) gives
 
 ```math
- R_5=\operatorname{diag}
+ R_5=\mathrm{diag}
  \left(-\frac{1782144}{5},-\frac{314568}{5},-\frac{314568}{5}\right),
 ```
 
@@ -228,18 +228,18 @@ witnesses with the common ratio $10329/10000$.
 
 ### Exact optimum of the central branch
 
-Let $y_*$ be the unique positive root of $36y^3+39y^2-18y-17=0$, and put
+Let $y_{\ast}$ be the unique positive root of $36y^3+39y^2-18y-17=0$, and put
 
 ```math
- x_* = \frac{(1-y_*)(9y_*+5)}{2(3y_*+1)}.
+ x_{\ast} = \frac{(1-y_{\ast})(9y_{\ast}+5)}{2(3y_{\ast}+1)}.
 ```
 
 Then $\mathcal R$ has its unique global maximum on the parameter triangle at
-$(x_*,y_*)$. Numerically,
+$(x_{\ast},y_{\ast})$. Numerically,
 
 ```math
- y_*\approx0.678666120985539,\quad x_*\approx0.587842074213783,\quad
- \mathcal R(x_*,y_*)\approx1.038773776705983.
+ y_{\ast}\approx0.678666120985539,\quad x_{\ast}\approx0.587842074213783,\quad
+ \mathcal R(x_{\ast},y_{\ast})\approx1.038773776705983.
 ```
 
 **Proof.** Remove the positive constant $625/1536$ and call the remaining polynomial
@@ -275,7 +275,7 @@ For $0\le r\le1$, take the four matrices
  \frac54\begin{pmatrix}1&\pm ir\\\mp ir&r^2\end{pmatrix},
 ```
 
-together with $\operatorname{diag}(0,5(1-r^2))$. All are PSD, and their sum is $5I_2$.
+together with $\mathrm{diag}(0,5(1-r^2))$. All are PSD, and their sum is $5I_2$.
 For $r<1$, all five have rank one; at $r=1$ the fifth is zero. Their average full
 product is diagonal, with entries
 
@@ -362,7 +362,7 @@ matrices are positive definite and violate (1). In particular **$N_i=10A_i+I_3$*
 positive definite integer matrices with mean $201I_3$, and
 
 ```math
- R_5(N)=\operatorname{diag}\left(
+ R_5(N)=\mathrm{diag}\left(
  -\frac{1001743261997}{3},-\frac{81674724997}{3},-\frac{81674724997}{3}\right).
 ```
 
@@ -427,9 +427,9 @@ replacement recurrence $T(X)=\frac15\sum_iA_iXA_i$ give
 ```math
 \begin{aligned}
  \mathbb E_{\mathrm{rr}}[P_\sigma^TP_\sigma]
- &=\operatorname{diag}(52137052427520,26248489865856,26248489865856),\\
+ &=\mathrm{diag}(52137052427520,26248489865856,26248489865856),\\
  T^5(I)
- &=\operatorname{diag}(222683810001920,145806819139584,145806819139584).
+ &=\mathrm{diag}(222683810001920,145806819139584,145806819139584).
 \end{aligned}
 ```
 

@@ -14,8 +14,8 @@ The norm is the Euclidean operator norm. Both tuples sum to $100I$; their averag
 products are respectively
 
 ```math
-\operatorname{diag}(-3305280,-291264,-291264),\qquad
-\operatorname{diag}(-3305280,-2941824).
+\mathrm{diag}(-3305280,-291264,-291264),\qquad
+\mathrm{diag}(-3305280,-2941824).
 ```
 
 Integer and Gaussian-integer Gram factors certify positivity. Exact arithmetic certifies

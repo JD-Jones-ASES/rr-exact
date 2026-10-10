@@ -43,7 +43,7 @@ These conditions give positive semidefinite inputs and mean `I`.
 For this family, the symmetrized product is diagonal:
 
 ```math
- Q_n=-\operatorname{diag}\!\left(
+ Q_n=-\mathrm{diag}\!\left(
  \frac{4b^2cd^m}{n(n-1)(n-2)},\;
  \frac{2b^2cd^m}{n(n-1)}
  \right).
@@ -112,7 +112,7 @@ An attaining tuple consists of
  n/4&\displaystyle\pm n/\sqrt{8(n-2)}\\[2mm]
  \displaystyle\pm n/\sqrt{8(n-2)}&n/[2(n-2)]
  \end{pmatrix},\qquad
- C=\operatorname{diag}(n/2,0),
+ C=\mathrm{diag}(n/2,0),
 ```
 
 and `n-3` copies of `B=diag(0,n/(n-2))`. Every input in this attaining tuple has rank

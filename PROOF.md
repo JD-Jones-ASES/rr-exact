@@ -22,18 +22,18 @@ A_k=I+\mathbf{1}y_k^{\mathsf T}+y_k\mathbf{1}^{\mathsf T},
 where $\mathbf{1}$ is the all-ones vector. Write $J=\mathbf{1}\mathbf{1}^{\mathsf T}$
 and
 ```math
-\operatorname{rr}(A_1,\ldots,A_n)=\frac1{n!}\sum_{\sigma\in S_n}A_{\sigma(1)}\cdots A_{\sigma(n)}.
+\mathrm{rr}(A_1,\ldots,A_n)=\frac1{n!}\sum_{\sigma\in S_n}A_{\sigma(1)}\cdots A_{\sigma(n)}.
 ```
 The Recht–Ré inequality, in the form disproved here, asserts that if $A_1,\ldots,A_n$
 are positive semidefinite and $\sum_i A_i\preceq nI$, then
-$\lVert\operatorname{rr}(A_1,\ldots,A_n)\rVert\leq 1$.
+$\lVert\mathrm{rr}(A_1,\ldots,A_n)\rVert\leq 1$.
 
 **Theorem.** Each $A_k$ is positive semidefinite of rank $n-1$, and $\sum_k A_k=nI$. The
 scalar $a_n\in\mathbb{Q}$ defined by $a_0=a_1=1$ and
 ```math
 (n-1)\,a_{t+1}=2(n-1)\,a_t-n\,a_{t-1}\qquad(t\geq 1)
 ```
-satisfies $\operatorname{rr}(A_1,\ldots,A_n)\,\mathbf{1}=a_n\mathbf{1}$. In particular
+satisfies $\mathrm{rr}(A_1,\ldots,A_n)\,\mathbf{1}=a_n\mathbf{1}$. In particular
 ```math
 a_2=0,\quad a_3=-\frac12,\quad a_4=-\frac89,\quad a_5=-\frac{19}{16}.
 ```
@@ -42,7 +42,7 @@ absolute value of this sequence that exceeds $1$.
 
 **Theorem (norm).** For $n=5$,
 ```math
-\operatorname{rr}(A_1,\ldots,A_5)=\frac{29}{64}\,I-\frac{21}{64}\,J.
+\mathrm{rr}(A_1,\ldots,A_5)=\frac{29}{64}\,I-\frac{21}{64}\,J.
 ```
 The eigenvalues are $-19/16$, once, and $29/64$, four times. The operator norm is
 exactly $19/16$.
@@ -105,7 +105,7 @@ For the quadratic form, $\mathbf{1}\perp y_k$ gives
 v^{\mathsf T}A_k v=\lVert v\rVert^2+2(\mathbf{1}\cdot v)(y_k\cdot v).
 ```
 Pythagoras in the orthogonal decomposition
-$\operatorname{span}\{\mathbf{1},y_k\}\oplus\operatorname{span}\{\mathbf{1},y_k\}^\perp$
+$\mathrm{span}\{\mathbf{1},y_k\}\oplus\mathrm{span}\{\mathbf{1},y_k\}^\perp$
 gives
 ```math
 \lVert v\rVert^2\geq\frac{s^2}{n}+n t^2,
@@ -115,7 +115,7 @@ $\lVert y_k\rVert^2=1/n$. Therefore
 ```math
 v^{\mathsf T}A_k v\geq\frac{s^2}{n}+nt^2+2st=\frac{(s+nt)^2}{n}\geq 0.
 ```
-Equality holds if and only if $v\in\operatorname{span}\{\mathbf{1},y_k\}$ and $s+nt=0$,
+Equality holds if and only if $v\in\mathrm{span}\{\mathbf{1},y_k\}$ and $s+nt=0$,
 i.e. on the line spanned by $\kappa_k=\mathbf{1}-n y_k$. Directly,
 ```math
 A_k\kappa_k=(\mathbf{1}-ny_k)+(y_k\cdot\kappa_k)\mathbf{1}+(\mathbf{1}\cdot\kappa_k)y_k
@@ -153,7 +153,7 @@ one fixed list with sum $S$. Averaging over $S_n$, each index occupies each posi
 that list equally often, so each $y_k$ receives the coefficient $S/n$. Those terms
 cancel because $\sum_k y_k=0$. Hence
 ```math
-\operatorname{rr}(A_1,\ldots,A_n)\,\mathbf{1}=a_n\mathbf{1},
+\mathrm{rr}(A_1,\ldots,A_n)\,\mathbf{1}=a_n\mathbf{1},
 ```
 where $a_n$ is the value of $a$ at step $n$.
 
@@ -185,9 +185,9 @@ For $n=5$, one has $\rho=-1/20$, and the age steps are
 | 5 | $-19/16$ | $205/16$ |
 
 The last line is the one that matters:
-$\operatorname{rr}\,\mathbf{1}=-(19/16)\mathbf{1}$, so
+$\mathrm{rr}\,\mathbf{1}=-(19/16)\mathbf{1}$, so
 ```math
-\lVert\operatorname{rr}(A_1,\ldots,A_5)\rVert\geq\frac{19}{16}>1.
+\lVert\mathrm{rr}(A_1,\ldots,A_5)\rVert\geq\frac{19}{16}>1.
 ```
 The three preceding absolute values are $0$, $1/2$, $8/9$, all at most $1$. To conclude
 that the whole operator norm is at most one, one also needs the complementary
@@ -207,10 +207,10 @@ value is greater than $1$.)
 The all-ones computation gives the lower bound. The matching upper bound is the matrix
 identity
 ```math
-\operatorname{rr}(A_1,\ldots,A_5)=\frac{29}{64}\,I-\frac{21}{64}\,J.
+\mathrm{rr}(A_1,\ldots,A_5)=\frac{29}{64}\,I-\frac{21}{64}\,J.
 ```
 A scalar matrix plus a multiple of $J$ acts by $\beta+n\gamma$ on
-$\operatorname{span}\{\mathbf{1}\}$ and by $\beta$ on $\mathbf{1}^\perp$. Here
+$\mathrm{span}\{\mathbf{1}\}$ and by $\beta$ on $\mathbf{1}^\perp$. Here
 $\beta=29/64$ and $\gamma=-21/64$, so
 ```math
 \beta+5\gamma=\frac{29}{64}-\frac{105}{64}=-\frac{76}{64}=-\frac{19}{16},
