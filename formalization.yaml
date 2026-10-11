@@ -17,12 +17,16 @@ classification:
   msc2020: ["15A45", "15A60", "47A30"]
 sources:
   - title: Exact real 3×3 and complex 2×2 counterexamples to the Recht–Ré inequality
-    type: other
+    type: original-proof
     authors: [JD Jones]
-    relationship: formalizes
-    notes: >-
-      note/LOW_DIMENSION.md gives the explicit examples, elementary
-      product formulas, and supplementary family analysis. The compared
+    relationship: other
+    location: note/LOW_DIMENSION.md
+    note: >-
+      This project first presents its exact real dimension-three and complex
+      dimension-two examples. note/LOW_DIMENSION.md accompanies this same
+      original development, with elementary product formulas and supplementary
+      family analysis; it is not a distinct prior source work being formalized.
+      This provenance classification does not assert worldwide priority. The compared
       declarations are two existential real/complex counterexamples;
       general parameter and optimization results are not additional
       compared Lean claims.
@@ -30,18 +34,20 @@ sources:
     type: paper
     authors: [Christopher De Sa]
     year: 2020
-    relationship: adapts
-    notes: >-
+    relationship: background
+    note: >-
       NeurIPS 2020. Source of the dimension-five benchmark matrices,
       exact averaged-product formula, exact spectrum and ratio 19/16.
-      These mathematical values were already explicit in De Sa's paper.
-      The real construction here reduces the dimension of that benchmark.
+      These mathematical values were already explicit in De Sa's paper and
+      are adapted as a supporting formalized benchmark. The original compared
+      real construction here reduces the dimension of that benchmark; the
+      dimension-five result is not one of the two compared declarations.
   - title: Toward a Noncommutative Arithmetic-Geometric Mean Inequality
     type: paper
     authors: [Benjamin Recht, Christopher Ré]
     year: 2012
     relationship: background
-    notes: >-
+    note: >-
       COLT 2012, Conjecture 1, formula (8). The present result concerns
       the norm of the averaged ordered product, not formula (9).
   - title: Recht–Ré Noncommutative Arithmetic-Geometric Mean Conjecture is False
@@ -49,7 +55,7 @@ sources:
     authors: [Zehua Lai, Lek-Heng Lim]
     year: 2020
     relationship: background
-    notes: ICML 2020; nonconstructive five-factor disproof and low-length results.
+    note: ICML 2020; nonconstructive five-factor disproof and low-length results.
 automation:
   methods:
     - method: agent
@@ -69,7 +75,7 @@ review:
     are not external human peer review. Release verification must be
     established by exact-commit Linux CI.
 fidelity:
-  notes: >-
+  divergences: >-
     Two Mathlib-only challenge contracts assert existential real 3x3
     and complex 2x2 counterexamples, with standard permutation sums,
     PSD, scalar sums, full Euclidean operator norms, strict failure,
